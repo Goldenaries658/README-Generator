@@ -12,6 +12,10 @@ const writeToFile = async (data) => {
   let path = `./output/${projectName}`;
 
   try {
+    // Checking if output folder exists and creating one if not
+    if (!fs.existsSync('./output')){
+      fs.mkdirSync('./output')
+    }
     // Checking if file exists already
     if (fs.existsSync(`${path}/README.md`)) {
       let filenameConfirmed = false;
