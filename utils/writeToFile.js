@@ -11,7 +11,9 @@ const projectSelect = async () => {
     message: 'Enter project name or leave blank for default.'.magenta.bold,
     default: 'my-project',
   });
-  path = `./output/${path.projectName}`;
+  // Removing unwanted characters from filename and replacing with '-'
+  const projectName = path.projectName.split(/(?:,| |\[|\]|\:|\;|\||\*|")+/).join('-');
+  path = `./output/${projectName}`;
   return path;
 };
 
