@@ -6,7 +6,6 @@ const callGithub = async (username) => {
   try {
     const response = await axios.get(queryURL);
     const data = response.data
-    console.log(response);
     // Checking if there is an email in the response and manually setting one if not
     if (!data.email) {
       console.log('No GitHub email found!'.red.bold);
