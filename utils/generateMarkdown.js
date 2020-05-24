@@ -4,7 +4,7 @@ function generateMarkdown(projectName, data, githubData) {
 
 <div align="center">
   <img src="https://img.shields.io/github/license/${data.github}/${projectName}" alt="License Badge" />
-  <img src="https://img.shields.io/github/issues/${data.github}/Readme-generator" alt="Issues Badge"/>
+  <img src="https://img.shields.io/github/issues/${data.github}/${projectName}" alt="Issues Badge"/>
 </div>
 
 ## Description
