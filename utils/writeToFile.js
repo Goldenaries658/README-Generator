@@ -3,6 +3,7 @@ const fs = require('fs');
 
 const printHeader = require('./printHeader');
 const generateMarkdown = require('./generateMarkdown');
+const callGithub = require('./callGithub')
 
 // Prompting for a project name and setting directory
 const projectSelect = async () => {
@@ -46,8 +47,12 @@ const writeToFile = async (data) => {
       fs.mkdirSync(path);
     }
 
+    // Calling github api
+    githubData = await callGithub(data.username, projectName);
+
+    // Writing the output file
     printHeader();
-    fs.writeFile(`${path}/README.md`, generateMarkdown(projectName, data), (err) => {
+    fs.writeFile(`${path}/README.md`, generateMarkdown(projectName, data, githubData), (err) => {
       if (err) throw err;
       console.log('saved');
     });
