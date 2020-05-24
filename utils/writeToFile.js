@@ -52,8 +52,8 @@ const writeToFile = async (data) => {
         console.log('saved');
       }
     );
-  } catch (error) {
-    console.log(error);
+  } catch (err) {
+    console.error(err);
   }
 };
 

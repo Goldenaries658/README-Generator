@@ -42,7 +42,11 @@ const questions = [
 const init = async () => {
   printHeader();
   console.log('Welcome to the README Generator!'.magenta.bold);
-  const data = await inquirer.prompt(questions);
+  try {
+      const data = await inquirer.prompt(questions);
+  } catch (err) {
+      console.error(err);
+  }
   writeToFile(data);
 };
 
