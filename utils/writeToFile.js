@@ -12,15 +12,17 @@ const projectSelect = async () => {
     default: 'my-project',
   });
   // Removing unwanted characters from filename and replacing with '-'
-  const projectName = path.projectName.split(/(?:,| |\[|\]|\:|\;|\||\*|")+/).join('-');
-  path = `./output/${projectName}`;
-  return path;
+  const projectName = path.projectName
+    .split(/(?:,| |\[|\]|\:|\;|\||\*|")+/)
+    .join('-');
+  return projectName;
 };
 
 // Writing the new directory and file
 const writeToFile = async (data) => {
   printHeader();
-  let path = await projectSelect();
+  let projectName = await projectSelect();
+  let path = `./output/${projectName}`;
 
   try {
     // Checking if file exists already
@@ -34,13 +36,18 @@ const writeToFile = async (data) => {
           name: 'overwrite',
           message: `${path}/README.md already exists, do you wish to overwite?`,
         });
+        if (!confirmation.overwrite) {
+          projectName = await projectSelect();
+          path = `./output/${projectName}`;
+        }
         filenameConfirmed = confirmation.overwrite;
       }
-    } else {
+    } else if (!fs.existsSync(path)) {
       fs.mkdirSync(path);
     }
+
     printHeader();
-    fs.writeFile(`${path}/README.md`, generateMarkdown(data), (err) => {
+    fs.writeFile(`${path}/README.md`, generateMarkdown(projectName, data), (err) => {
       if (err) throw err;
       console.log('saved');
     });
