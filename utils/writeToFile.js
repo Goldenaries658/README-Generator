@@ -24,7 +24,11 @@ const writeToFile = async (data) => {
           message: `${path}/README.md already exists, do you wish to overwite?`,
         });
         if (!confirmation.overwrite) {
-          projectName = data.title
+          let title = await inquirer.prompt({
+            name: 'title',
+            message: 'Enter project title:'.magenta.bold,
+          });
+          let projectName = title
             .split(/(?:,| |\[|\]|\:|\;|\||\*|")+/)
             .join('-');
           path = `./output/${projectName}`;
