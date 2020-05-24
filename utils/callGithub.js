@@ -3,10 +3,8 @@ const inquirer = require('inquirer');
 
 const callGithub = async (username) => {
   const queryURL = `https://api.github.com/users/${username}`;
-  console.log(queryURL.red)
   try {
     const response = await axios.get(queryURL);
-    console.log(response.data)
     // Checking if there is an email in the response and manually setting one if not
     if (!response.email) {
       console.log('No GitHub email found!'.red.bold);

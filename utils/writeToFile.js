@@ -37,7 +37,6 @@ const writeToFile = async (data) => {
 
     // Calling github api
     const githubData = await callGithub(data.github);
-    console.log(githubData);
     const blah = await inquirer.prompt({
       name: 'test',
       message: 'blah',
