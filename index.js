@@ -44,10 +44,10 @@ const init = async () => {
   console.log('Welcome to the README Generator!'.magenta.bold);
   try {
       const data = await inquirer.prompt(questions);
+      writeToFile(data);
   } catch (err) {
       console.error(err);
   }
-  writeToFile(data);
 };
 
 init();
