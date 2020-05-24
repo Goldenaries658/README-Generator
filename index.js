@@ -2,10 +2,11 @@ const questions = [
 
 ];
 
-function writeToFile(fileName, data) {
+const writeToFile = (fileName, data) => {
+    
 }
 
-function init() {
+const init = () => {
 
 }
 
