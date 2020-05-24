@@ -1,10 +1,10 @@
-function generateMarkdown(projectName, data) {
+function generateMarkdown(projectName, data, githubData) {
   return `
 <h1 align="center">${projectName}</div>
 
 <div align="center">
-  <img src="https://img.shields.io/github/license/${data.username}/${repoName}" alt="License Badge" />
-  <img src="https://img.shields.io/github/issues/goldenaries658/Readme-generator" alt="Issues Badge"/>
+  <img src="https://img.shields.io/github/license/${data.github}/${projectName}" alt="License Badge" />
+  <img src="https://img.shields.io/github/issues/${data.github}/Readme-generator" alt="Issues Badge"/>
 </div>
 
 ## Description
@@ -28,10 +28,6 @@ ${data.installation}
 
 ${data.usage}
 
-## Licence
-
-${data.licence}
-
 ## Contributing
 
 ${data.contributing}
@@ -42,8 +38,11 @@ ${data.tests}
 
 ## Questions
 
-${data.questions}
+For any questions, my name is ${githubData.name} I am available at:  
 
+[${githubData.login}](${html_url})  
+${githubData.email}  
+![Avatar](${githubData.avatar_url})
 
 `;
 }
