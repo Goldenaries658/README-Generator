@@ -30,7 +30,8 @@ Simply clone or download the repo and run $ npm install in git bash, then run $ 
 
 ## Usage
 
-Follow instructions in CLI to fill in info, this will then be input into the readme
+Follow instructions in CLI to fill in info, this will then be input into the readme  
+*Windows users*: Clone/download the repo and run start.bat
 
 ## Contributing
 
