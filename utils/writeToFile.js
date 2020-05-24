@@ -13,8 +13,8 @@ const writeToFile = async (data) => {
 
   try {
     // Checking if output folder exists and creating one if not
-    if (!fs.existsSync('./output')){
-      fs.mkdirSync('./output')
+    if (!fs.existsSync('./output')) {
+      fs.mkdirSync('./output');
     }
     // Checking if file exists already
     if (fs.existsSync(`${path}/README.md`)) {
@@ -47,13 +47,20 @@ const writeToFile = async (data) => {
     const githubData = await callGithub(data.github);
 
     // Writing the output file
-    printHeader();
     fs.writeFile(
       `${path}/README.md`,
       generateMarkdown(projectName, data, githubData),
       (err) => {
         if (err) throw err;
-        console.log('saved');
+        printHeader();
+        console.log(
+          `
+  _           _                      
+ /_\`_    _   / \`_  _ _  _  /_ _/__  /
+._//_||//_' /_,/_// / //_///_'/ /_'. 
+                      /              
+`.white.bgGreen.bold
+        );
       }
     );
   } catch (err) {
