@@ -40,7 +40,7 @@ ${data.tests}
 
 For any questions, my name is ${githubData.name} I am available at:  
 
-[${githubData.login}](${html_url})  
+[${githubData.login}](${githubData.html_url})  
 ${githubData.email}  
 ![Avatar](${githubData.avatar_url})
 

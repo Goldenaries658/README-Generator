@@ -5,17 +5,18 @@ const callGithub = async (username) => {
   const queryURL = `https://api.github.com/users/${username}`;
   try {
     const response = await axios.get(queryURL);
+    const data = response.data
+    console.log(response);
     // Checking if there is an email in the response and manually setting one if not
-    if (!response.email) {
+    if (!data.email) {
       console.log('No GitHub email found!'.red.bold);
       const email = await inquirer.prompt({
-        type: 'confirm',
-        name: email,
+        name: 'email',
         message: 'Please enter email:'.magenta.bold,
       });
-      response.email = email.email
+      data.email = email.email
     }
-    return response;
+    return data;
   } catch (err) {
     console.log(err);
   }

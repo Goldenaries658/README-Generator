@@ -41,10 +41,6 @@ const writeToFile = async (data) => {
 
     // Calling github api
     const githubData = await callGithub(data.github);
-    const blah = await inquirer.prompt({
-      name: 'test',
-      message: 'blah',
-    });
 
     // Writing the output file
     printHeader();
