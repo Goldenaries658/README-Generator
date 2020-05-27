@@ -33,6 +33,8 @@ const writeToFile = async (data) => {
             message: 'Enter project title:'.magenta.bold,
           });
           let projectName = title
+            // Splitting by any illegal characters using regex
+            // This will treat any special characters as one if they are chained
             .split(/(?:,| |\[|\]|\:|\;|\||\*|")+/)
             .join('-');
           path = `./output/${projectName}`;
@@ -53,6 +55,8 @@ const writeToFile = async (data) => {
       (err) => {
         if (err) throw err;
         printHeader();
+
+        // Logging ascii art saying 'Save Complete!'
         console.log(
           `
   _           _                      
