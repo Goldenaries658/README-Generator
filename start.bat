@@ -1,6 +1,6 @@
 @ECHO off
 color 0a
-mode con: cols=64 lines=40
+mode con: cols=64 lines=30
 ECHO Firstly we need to check dependencies
 PAUSE 
 call npm install
