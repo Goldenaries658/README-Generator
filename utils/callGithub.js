@@ -9,11 +9,11 @@ const callGithub = async (username) => {
     // Checking if there is an email in the response and manually setting one if not
     if (!data.email) {
       console.log('No GitHub email found!'.red.bold);
-      const email = await inquirer.prompt({
+      const emailPrompt = await inquirer.prompt({
         name: 'email',
         message: 'Please enter email:'.magenta.bold,
       });
-      data.email = email.email
+      data.email = emailPrompt.email
     }
     return data;
   } catch (err) {
