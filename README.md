@@ -34,7 +34,7 @@ Follow instructions in CLI to fill in info, this will then be input into the rea
 
 ## Contributing
 
-Contributer Covenant
+Contributor Covenant
 
 ## Tests
 
