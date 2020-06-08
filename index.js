@@ -5,7 +5,7 @@ const colors = require('colors');
 
 const writeToFile = require('./utils/writeToFile');
 const printHeader = require('./utils/printHeader');
-const callGithub = require('./utils/callGithub')
+const callGithub = require('./utils/callGithub');
 
 // Array of question to ask user
 const questions = [
@@ -43,10 +43,10 @@ const init = async () => {
   printHeader();
   console.log('Welcome to the README Generator!'.magenta.bold);
   try {
-      const data = await inquirer.prompt(questions);
-      writeToFile(data);
+    const data = await inquirer.prompt(questions);
+    writeToFile(data);
   } catch (err) {
-      console.error(err);
+    console.error(err);
   }
 };
 

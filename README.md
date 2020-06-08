@@ -1,4 +1,3 @@
-
 <h1 align="center">README-Generator</div>
 
 <div align="center">
@@ -30,7 +29,7 @@ Simply clone or download the repo and run `$ npm install` in git bash, then run 
 ## Usage
 
 Follow instructions in CLI to fill in info, this will then be input into the readme  
-*Windows users*: Clone/download the repo and run start.bat
+_Windows users_: Clone/download the repo and run start.bat
 
 ## Contributing
 
@@ -42,10 +41,9 @@ No test packages included
 
 ## Questions
 
-For any questions, my name is Jacob Houston I am available at:  
+For any questions, my name is Jacob Houston I am available at:
 
 [Goldenaries658](https://github.com/Goldenaries658)  
-jacob.houston658@gmail.com  
+jacob.houston658@gmail.com
 
 <img src="https://avatars2.githubusercontent.com/u/59972622?v=4" alt="avatar" width="200" height="200" />
-

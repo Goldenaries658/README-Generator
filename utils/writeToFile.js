@@ -16,7 +16,9 @@ const writeToFile = async (data) => {
     while (!path || fs.existsSync(`${path}/README.md`)) {
       printHeader();
       // RegEx to remove illegal characters from filename and replace with "-"
-      let projectName = data.title.split(/(?:,| |\[|\]|\:|\;|\||\*|")+/).join('-');
+      let projectName = data.title
+        .split(/(?:,| |\[|\]|\:|\;|\||\*|")+/)
+        .join('-');
       let path = `./output/${projectName}`;
 
       let filenameConfirmed = false;
