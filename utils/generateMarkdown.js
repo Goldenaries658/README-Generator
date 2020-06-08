@@ -42,7 +42,7 @@ For any questions, my name is ${githubData.name} I am available at:
 [${githubData.login}](${githubData.html_url})  
 ${githubData.email}  
 
-![Avatar](${githubData.avatar_url})
+<img src="${githubData.avatar_url}" alt="avatar" width="200" height="200" />
 
 `;
 }
