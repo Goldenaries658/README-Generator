@@ -1,5 +1,19 @@
 const axios = require('axios');
 const inquirer = require('inquirer');
+const printHeader = require('./printHeader');
+
+const emailValidator = async (email) => {
+  valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+
+  if (valid) {
+    return true;
+  } else {
+    console.clear();
+    printHeader();
+    console.log('Invalid email entered!'.red.bold);
+    return false;
+  }
+};
 
 const callGithub = async (username) => {
   const queryURL = `https://api.github.com/users/${username}`;
@@ -12,6 +26,7 @@ const callGithub = async (username) => {
       const emailPrompt = await inquirer.prompt({
         name: 'email',
         message: 'Please enter email:'.magenta.bold,
+        validate: emailValidator,
       });
       data.email = emailPrompt.email;
     }
