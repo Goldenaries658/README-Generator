@@ -5,19 +5,20 @@ const printHeader = require('./printHeader');
 const generateMarkdown = require('./generateMarkdown');
 const callGithub = require('./callGithub');
 
-// Writing the new directory and file
 const writeToFile = async (data) => {
-  printHeader();
-  let projectName = data.title.split(/(?:,| |\[|\]|\:|\;|\||\*|")+/).join('-');
-  let path = `./output/${projectName}`;
-
+  // Writing the new directory and file
   try {
     // Checking if output folder exists and creating one if not
     if (!fs.existsSync('./output')) {
       fs.mkdirSync('./output');
     }
     // Checking if file exists already
-    if (fs.existsSync(`${path}/README.md`)) {
+    while (!path || fs.existsSync(`${path}/README.md`)) {
+      printHeader();
+      // RegEx to remove illegal characters from filename and replace with "-"
+      let projectName = data.title.split(/(?:,| |\[|\]|\:|\;|\||\*|")+/).join('-');
+      let path = `./output/${projectName}`;
+
       let filenameConfirmed = false;
       // While loop to repeatedly test input
       while (!filenameConfirmed) {
@@ -25,7 +26,7 @@ const writeToFile = async (data) => {
         const confirmation = await inquirer.prompt({
           type: 'confirm',
           name: 'overwrite',
-          message: `${path}/README.md already exists, do you wish to overwite?`,
+          message: `${path}/README.md already exists, do you wish to overwrite?`,
         });
         if (!confirmation.overwrite) {
           let title = await inquirer.prompt({
@@ -41,7 +42,8 @@ const writeToFile = async (data) => {
         }
         filenameConfirmed = confirmation.overwrite;
       }
-    } else if (!fs.existsSync(path)) {
+    }
+    if (!fs.existsSync(path)) {
       fs.mkdirSync(path);
     }
 
