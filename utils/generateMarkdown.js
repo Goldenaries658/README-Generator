@@ -18,8 +18,6 @@ ${data.description}
 - [Tests](#tests)
 - [Questions](questions)
 
-<hr />
-
 ## Installation
 
 ${data.installation}
