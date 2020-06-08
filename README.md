@@ -47,5 +47,5 @@ For any questions, my name is Jacob Houston I am available at:
 [Goldenaries658](https://github.com/Goldenaries658)  
 jacob.houston658@gmail.com  
 
-![Avatar](https://avatars2.githubusercontent.com/u/59972622?v=4)
+<img src="https://avatars2.githubusercontent.com/u/59972622?v=4" alt="avatar" width="200" height="200" />
 
