@@ -1,6 +1,5 @@
 function generateMarkdown(projectName, data, githubData) {
-  return `
-<h1 align="center">${projectName}</div>
+  return `<h1 align="center">${projectName}</div>
 
 <div align="center">
   <img src="https://img.shields.io/github/license/${data.github}/${projectName}" alt="License Badge" />
