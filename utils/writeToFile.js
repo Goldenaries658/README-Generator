@@ -6,6 +6,12 @@ const generateMarkdown = require('./generateMarkdown');
 const callGithub = require('./callGithub');
 
 const writeToFile = async (data) => {
+  printHeader();
+  // RegEx to remove illegal characters from filename and replace with "-"
+  let projectName = data.title
+    .split(/(?:,| |\[|\]|\:|\;|\||\*|")+/)
+    .join('-');
+  let path = `./output/${projectName}`;
   // Writing the new directory and file
   try {
     // Checking if output folder exists and creating one if not
@@ -13,14 +19,7 @@ const writeToFile = async (data) => {
       fs.mkdirSync('./output');
     }
     // Checking if file exists already
-    while (!path || fs.existsSync(`${path}/README.md`)) {
-      printHeader();
-      // RegEx to remove illegal characters from filename and replace with "-"
-      let projectName = data.title
-        .split(/(?:,| |\[|\]|\:|\;|\||\*|")+/)
-        .join('-');
-      let path = `./output/${projectName}`;
-
+    if (!path || fs.existsSync(`${path}/README.md`)) {
       let filenameConfirmed = false;
       // While loop to repeatedly test input
       while (!filenameConfirmed) {
@@ -36,7 +35,7 @@ const writeToFile = async (data) => {
             message: 'Enter project title:'.magenta.bold,
           });
           let projectName = title
-            // Splitting by any illegal characters using regex
+            // RegEx to remove illegal characters from filename and replace with "-"
             // This will treat any special characters as one if they are chained
             .split(/(?:,| |\[|\]|\:|\;|\||\*|")+/)
             .join('-');
@@ -44,8 +43,7 @@ const writeToFile = async (data) => {
         }
         filenameConfirmed = confirmation.overwrite;
       }
-    }
-    if (!fs.existsSync(path)) {
+    } else if (!fs.existsSync(path)) {
       fs.mkdirSync(path);
     }
 
