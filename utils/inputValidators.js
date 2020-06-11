@@ -10,3 +10,18 @@ const emptyInputCheck = async (input) => {
   }
 };
 
+const emailValidator = async (email) => {
+  // Regex that checks for a valid email string
+  valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+
+  if (valid) {
+    return true;
+  } else {
+    console.clear();
+    printHeader();
+    console.log('Invalid email entered!'.red.bold);
+    return false;
+  }
+};
+
+module.exports = { emptyInputCheck, emailValidator };
