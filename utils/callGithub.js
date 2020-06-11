@@ -1,6 +1,6 @@
 const axios = require('axios');
 const inquirer = require('inquirer');
-const { emailValidator } = require('./inputValidators');
+const emailValidator = require('./inputValidators');
 
 const callGithub = async (username) => {
   const queryURL = `https://api.github.com/users/${username}`;
