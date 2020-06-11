@@ -4,13 +4,12 @@ const fs = require('fs');
 const printHeader = require('./printHeader');
 const generateMarkdown = require('./generateMarkdown');
 const callGithub = require('./callGithub');
+const emptyInputCheck = require('./inputValidators');
 
 const writeToFile = async (data) => {
   printHeader();
   // RegEx to remove illegal characters from filename and replace with "-"
-  let projectName = data.title
-    .split(/(?:,| |\[|\]|\:|\;|\||\*|")+/)
-    .join('-');
+  let projectName = data.title.split(/(?:,| |\[|\]|\:|\;|\||\*|")+/).join('-');
   let path = `./output/${projectName}`;
   // Writing the new directory and file
   try {
@@ -33,6 +32,7 @@ const writeToFile = async (data) => {
           let title = await inquirer.prompt({
             name: 'title',
             message: 'Enter project title:'.magenta.bold,
+            validate: emptyInputCheck,
           });
           let projectName = title
             // RegEx to remove illegal characters from filename and replace with "-"
