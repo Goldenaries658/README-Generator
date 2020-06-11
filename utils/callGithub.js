@@ -3,6 +3,7 @@ const inquirer = require('inquirer');
 const printHeader = require('./printHeader');
 
 const emailValidator = async (email) => {
+  // Regex that checks for a valid email string
   valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
 
   if (valid) {
