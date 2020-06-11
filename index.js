@@ -1,11 +1,8 @@
-const fs = require('fs');
 const inquirer = require('inquirer');
-const util = require('util');
 const colors = require('colors');
 
 const writeToFile = require('./utils/writeToFile');
 const printHeader = require('./utils/printHeader');
-const callGithub = require('./utils/callGithub');
 
 // Array of question to ask user
 const questions = [
