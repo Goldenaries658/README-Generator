@@ -11,7 +11,7 @@ const emptyInputCheck = async (input) => {
       return true;
     }
   } catch (err) {
-    if (err) return err;
+    console.log(`ERROR - inputValidators.js - emptyInputCheck(): ${err}`);
   }
 };
 
@@ -19,7 +19,7 @@ const emailValidator = async (email) => {
   try {
     // Regex that checks for a valid email string
     valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
-
+    
     if (valid) {
       return true;
     } else {
@@ -29,7 +29,7 @@ const emailValidator = async (email) => {
       return false;
     }
   } catch (err) {
-    if (err) return err;
+    console.log(`ERROR - inputValidators.js - emailValidator(): ${err}`);
   }
 };
 

@@ -18,7 +18,7 @@ const callGithub = async (username) => {
     }
     return data;
   } catch (err) {
-    console.error(err);
+    console.error(`ERROR - callGithub.js - callGithub(): ${err}`);
   }
 };
 

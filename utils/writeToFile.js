@@ -12,11 +12,11 @@ const writeToFile = async (data) => {
   let projectName = data.title.split(/(?:,| |\[|\]|\:|\;|\||\*|")+/).join('-');
   let path = `./output/${projectName}`;
   // Writing the new directory and file
+  // Checking if output folder exists and creating one if not
+  if (!fs.existsSync('./output')) {
+    fs.mkdirSync('./output');
+  }
   try {
-    // Checking if output folder exists and creating one if not
-    if (!fs.existsSync('./output')) {
-      fs.mkdirSync('./output');
-    }
     // Checking if file exists already
     if (!path || fs.existsSync(`${path}/README.md`)) {
       let filenameConfirmed = false;
@@ -60,8 +60,7 @@ const writeToFile = async (data) => {
 
         // Logging ascii art saying 'Save Complete!'
         console.log(
-          `
-  _           _                      
+`  _           _                      
  /_\`_    _   / \`_  _ _  _  /_ _/__  /
 ._//_||//_' /_,/_// / //_///_'/ /_'. 
                       /              
@@ -70,7 +69,7 @@ const writeToFile = async (data) => {
       }
     );
   } catch (err) {
-    console.error(err);
+    console.error(`ERROR - writeToFile.js - writeToFile()`);
   }
 };
 

@@ -51,7 +51,7 @@ const init = async () => {
     const data = await inquirer.prompt(questions);
     writeToFile(data);
   } catch (err) {
-    console.error(err);
+    console.error(`ERROR - index.js - init(): ${errs}`);
   }
 };
 
