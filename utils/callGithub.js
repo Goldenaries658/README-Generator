@@ -1,8 +1,8 @@
 const axios = require('axios');
 const inquirer = require('inquirer');
-const emailValidator = require('./inputValidators');
+const { emailValidator } = require('./inputValidators');
 
-const callGithub = async (username) => {
+module.exports = async (username) => {
   const queryURL = `https://api.github.com/users/${username}`;
   try {
     const { data } = await axios.get(queryURL);
@@ -18,8 +18,6 @@ const callGithub = async (username) => {
     }
     return data;
   } catch (err) {
-    console.error(err);
+    console.error(`ERROR - callGithub.js - callGithub(): ${err}`);
   }
 };
-
-module.exports = callGithub;

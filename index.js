@@ -3,7 +3,7 @@ const colors = require('colors');
 
 const writeToFile = require('./utils/writeToFile');
 const printHeader = require('./utils/printHeader');
-const emptyInputCheck = require('./utils/inputValidators');
+const { emptyInputCheck } = require('./utils/inputValidators');
 
 // Array of question to ask user
 const questions = [
@@ -51,7 +51,7 @@ const init = async () => {
     const data = await inquirer.prompt(questions);
     writeToFile(data);
   } catch (err) {
-    console.error(err);
+    console.error(`ERROR - index.js - init(): ${errs}`);
   }
 };
 
