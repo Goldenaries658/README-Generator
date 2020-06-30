@@ -6,7 +6,7 @@ const generateMarkdown = require('./generateMarkdown');
 const callGithub = require('./callGithub');
 const emptyInputCheck = require('./inputValidators');
 
-const writeToFile = async (data) => {
+module.exports = async (data) => {
   printHeader();
   // RegEx to remove illegal characters from filename and replace with "-"
   let projectName = data.title.split(/(?:,| |\[|\]|\:|\;|\||\*|")+/).join('-');
@@ -53,14 +53,15 @@ const writeToFile = async (data) => {
     // Writing the output file
     fs.writeFile(
       `${path}/README.md`,
-      generateMarkdown(projectName, data, githubData),
+      await generateMarkdown(projectName, data, githubData),
       (err) => {
         if (err) throw err;
         printHeader();
 
         // Logging ascii art saying 'Save Complete!'
         console.log(
-`  _           _                      
+          `
+  _           _                      
  /_\`_    _   / \`_  _ _  _  /_ _/__  /
 ._//_||//_' /_,/_// / //_///_'/ /_'. 
                       /              
@@ -72,5 +73,3 @@ const writeToFile = async (data) => {
     console.error(`ERROR - writeToFile.js - writeToFile()`);
   }
 };
-
-module.exports = writeToFile;
