@@ -1,6 +1,6 @@
 const colors = require('colors');
 
-const printHeader = () => {
+module.exports = () => {
   const header = `
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -16,4 +16,3 @@ const printHeader = () => {
   console.clear();
   console.log(header);
 };
-module.exports = printHeader;

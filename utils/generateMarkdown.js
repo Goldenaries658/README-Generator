@@ -1,4 +1,4 @@
-function generateMarkdown(projectName, data, githubData) {
+module.exports = async (projectName, data, githubData) => {
   return `<h1 align="center">${projectName}</div>
 
 <div align="center">
@@ -58,6 +58,4 @@ ${githubData.email}
 </p>
 
 `;
-}
-
-module.exports = generateMarkdown;
+};
