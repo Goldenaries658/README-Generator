@@ -1,5 +1,5 @@
 module.exports = async (projectName, data, githubData) => {
-  return `<h1 align="center">${projectName}</div>
+  return `<h1 align="center">${projectName}</h1>
 
 <div align="center">
   <img src="https://img.shields.io/github/license/${data.github}/${projectName}" alt="License Badge" />
